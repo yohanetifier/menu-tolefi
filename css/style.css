@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "Gilroy-Bold";
-  src: url("./font/Gilroy-Bold.ttf") format("truetype");
-}
 .body {
   height: 500px;
   width: 100%;
@@ -30,10 +26,10 @@ input[type=checkbox] {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 20000;
 }
 
 .menu {
-  background-color: red;
   height: 500px;
   background: white;
   position: fixed;
@@ -48,7 +44,6 @@ input:checked + .menu {
 }
 
 .left-section {
-  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -67,7 +62,6 @@ input:checked + .menu {
 }
 .left-section__text--home {
   color: #262422;
-  font-family: "Gilroy-Bold";
   font-weight: 700;
 }
 .left-section__text--tolefi {
@@ -175,7 +169,6 @@ input:checked + .menu {
 }
 .middle-section__content {
   position: absolute;
-  border: 2px solid red;
   top: 215px;
   left: 110px;
   width: 75%;
@@ -183,8 +176,14 @@ input:checked + .menu {
 }
 .middle-section__contentone {
   position: absolute;
-  border: 2px solid red;
   top: 266px;
+  left: 110px;
+  width: 75%;
+  opacity: 0;
+}
+.middle-section__contenttwo {
+  position: absolute;
+  top: 318px;
   left: 110px;
   width: 75%;
   opacity: 0;
@@ -243,6 +242,16 @@ input:checked + .menu {
   border: 2px solid black;
   width: 100%;
   height: 50%;
+}
+
+.active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.activeSvg {
+  transform: rotate(180deg) !important;
+  transition: transform 500ms;
 }
 
 /*# sourceMappingURL=style.css.map */
