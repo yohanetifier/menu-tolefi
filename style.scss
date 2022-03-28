@@ -1,0 +1,303 @@
+//Variables
+
+$colortext: #262422; 
+$fontweightfortext: 700; 
+
+// Mixins
+
+@mixin rightSectionSubDisplay{
+  display: flex;
+  justify-content: space-between;
+  font-family: Helvetica; 
+  color: #262422; 
+}
+@mixin display-section-plus($dimension){
+  position:relative; 
+  top: $dimension;
+  width: 100%;
+}
+@mixin display-svg($dimension){
+  border: 1px solid #545251;
+   border-radius: 5px; 
+    width: 12px; 
+    height:0.1px; 
+    position: absolute; 
+    top: $dimension; 
+    left: 50px; 
+
+}
+@mixin rotate-svg{
+  transform : rotate(90deg);
+  transition: transform 200ms;
+}
+@mixin display-content($dimension){
+  position: absolute; 
+      border: 2px solid red; 
+      top: $dimension; 
+      left: 110px; 
+      width: 75%;
+      opacity: 0; 
+}
+
+// Font
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("./font/Gilroy-Bold.ttf") format("truetype")
+ }
+.body {
+    height: 500px;
+    width: 100%;
+    border: 2px solid red; 
+    display: flex;
+  }
+  
+  .main {
+    position: relative;
+    border: 2px solid purple;
+    width: 20px;
+    height: 20px;
+
+  }
+  
+  .span {
+    position: relative;
+    background-color: black;
+    cursor: pointer; 
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+  }
+  
+  .menu {
+    background-color: red; 
+    height: 500px;
+    background: white;
+    position: fixed;
+    display: flex; 
+    // top: 40px;
+    width: 98%;
+    transform: translateX(100%);
+    // border: 2px solid orange; 
+  }
+  
+  input:checked + .menu {
+    transform: translateX(-0%);
+    transition: transform 400ms ease;
+  }
+  
+  .left-section {
+    // border: 2px solid red; 
+    background-color: transparent; 
+    display: flex; 
+    flex-direction: column; 
+    // align-items: start;
+    justify-content: flex-end;
+    width: 30%;
+    height: 100%;
+    position: relative; 
+    &__text{
+      width: 100%;
+      height: 80%; 
+      text-align: right; 
+      & > p{
+        line-height: 20px; 
+        font-size: 30px; 
+      }
+      &--home{
+        color: $colortext;  
+        font-family: "Gilroy-Bold";
+        font-weight: $fontweightfortext; 
+      }
+      &--tolefi{
+        color: #262422; 
+        font-weight: $fontweightfortext;
+      }
+      &--real-estate{
+        // border: 2px solid yellow; 
+        // width: 450px; 
+        color: #3f6e88;
+        font-weight: $fontweightfortext;
+      }
+      &--retail-distribution{
+        // width: 450px; 
+        // border: 2px solid purple; 
+        color: #6d6f77; 
+        font-weight: $fontweightfortext;
+      }
+      &--finance {
+        color: #294b7e; 
+        font-weight: $fontweightfortext;
+      }
+      &--organisation-chart{
+        color:  $colortext;  
+        font-weight: $fontweightfortext;
+      }
+      &--actualites {
+        color:  $colortext;  
+        font-weight: $fontweightfortext;
+      }
+      &--contact-form{
+        color:  $colortext; 
+        font-weight: $fontweightfortext; 
+      }
+    }
+  }
+
+  .middle-section {
+   position: relative; 
+    display: flex; 
+    width: 30%;
+    height: 100%;
+    &__more {
+      &--display{
+        display: flex; 
+        flex-direction: column;
+      }
+    }
+    &__plus{
+      position: relative; 
+      width: 25%;
+      text-align: center; 
+      height: 30%; 
+      // position: absolute; 
+      top: 225px;
+      // border: 2px solid red; 
+      &--real-estate{
+        @include display-section-plus(-9px); 
+        // border: 2px solid green; 
+        height: 20%;
+        & > svg {
+         @include display-svg(10px)
+        }
+        & > svg:nth-child(2){
+         @include rotate-svg
+
+        }
+      }
+      &--retail-distribution{
+        @include display-section-plus(-15px);
+        // border: 2px solid green; 
+        height: 20%;
+        & > svg {
+          @include display-svg(20px)
+        }
+        & > svg:nth-child(2){
+          @include rotate-svg
+        }
+ 
+      }
+      & > p:nth-child(3){
+        @include display-section-plus(-15px); 
+        // border: 2px solid green; 
+        height: 20%;
+        & > svg {
+          @include display-svg(25px)
+        }
+        & > svg:nth-child(2){
+          @include rotate-svg
+        }
+      }
+    }
+    &__content{
+      @include display-content(215px)
+    }
+    &__contentone{
+      @include display-content(266px)
+    }
+
+  }
+  
+  .right-section {
+    width: 28%;
+    height: 100%;
+    // border: 2px solid green; 
+    display: flex; 
+    align-items: flex-end;
+    justify-content: flex-end; 
+    &__container{
+      // border: 2px solid black; 
+      height: 78%; 
+      width: 100%; 
+      &__searchbar{
+        border: 1px solid grey; 
+        overflow: hidden; 
+        border-radius: 10px; 
+        height: 25px; 
+        & > input{
+          outline: none; 
+          border: none; 
+        }
+      }
+      &__date{
+        // height: 10%;
+        margin-top: 20px; 
+        margin-bottom: 10px; 
+        display: flex;
+        font-size: 15px; 
+        font-weight: 400; 
+        @include rightSectionSubDisplay; 
+        justify-content: space-between; 
+        // border-bottom: 1px solid grey; 
+        //  padding-bottom: 10px; 
+        // border: 2px solid red; 
+        & > p:nth-child(2){
+          font-weight: bold; 
+        }
+      }
+      &__address{
+        border-top: 1px solid grey; 
+        border-bottom: 1px solid grey; 
+        display: flex; 
+        align-items: center; 
+        font-size: 12px; 
+        height: 20%; 
+        @include rightSectionSubDisplay; 
+        // height: 20%; 
+        // padding-bottom: 5px; 
+        & > p {
+          // border: 2px solid red;
+        }
+      }
+      &__map{
+        margin-top: 50px; 
+        border: 2px solid black; 
+        width: 100%; 
+        height: 50%; 
+      }
+    }
+  }
+
+  // .testsvg{
+  //   border: 2px solid #545251;
+  //   border-radius: 5px; 
+  //   width: 18px; 
+  //   height:0.1px; 
+  //   position: absolute; 
+  //   left: 10px; 
+  // }
+
+  // .testsvg1{
+  //   border: 2px solid #545251;
+  //   border-radius: 5px; 
+  //   width: 18px; 
+  //   height:0.1px; 
+  //   position: absolute; 
+  //   left: 10px; 
+  //   transform : rotate(90deg);
+  //   transition: transform 200ms;
+  // }
+
+  // .test{
+  //   border: 2px solid bla
+  // }
+
+  
