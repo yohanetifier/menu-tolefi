@@ -5,8 +5,9 @@ const contentRetailDistribution= document.querySelector(".middle-section__conten
 const financeInvestment = document.querySelector(".left-section__text--finance")
 const contentFinanceInvestment = document.querySelector('.middle-section__contenttwo')
 
+
 class Menu{
-    
+
     constructor(element, toggle){
         this.element = element
         this.toggle = toggle
@@ -48,7 +49,6 @@ const blockThree = new Menu(financeInvestment,contentFinanceInvestment)
 blockOne.mouseOver()
 blockTwo.mouseOver()
 blockThree.mouseOver()
-
 
 
 
